@@ -8,7 +8,7 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        path.join(__dirname, 'app/main.js')
+        path.join(__dirname, 'src/main.js')
     ],
 
     output: {
@@ -24,9 +24,11 @@ module.exports = {
         loaders: [{
             test: /(\.jsx$|\.js$)/,
             loaders: ['react-hot', 'babel'],
-            include: path.join(__dirname, 'app'),
+            include: path.join(__dirname, 'src'),
             exclude: /node_modules/
-        }]
+        },
+            {test: /\.html|\.ico/, loader: 'file?name=[name].[ext]'}
+        ]
     },
 
     resolve: {
@@ -37,7 +39,7 @@ module.exports = {
         contentBase: './build-dev',
         colors: true,
         historyApiFallback: true,
-        hot : true,
+        hot: true,
         port: 8080
     }
 

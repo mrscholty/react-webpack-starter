@@ -1,3 +1,4 @@
 node_modules
-build-production/bundle.js
+build-production
 .DS_Store
+.idea
